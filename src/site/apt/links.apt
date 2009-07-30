@@ -1,0 +1,42 @@
+                  ----------------
+                       Links
+                  ----------------
+                  Spiros Tzavellas
+                  ----------------
+                    October 2005
+                  ----------------
+                  
+                  
+EJB
+ 
+	* {{{http://java.sun.com/products/ejb/}Sun's EJB site}}
+	
+	* {{{http://www.ibm.com/developerworks/java/library/j-ejbcol.html}EJB Best Practices (IBM developerWorks)}}
+	
+	* {{{http://www.ibm.com/developerworks/websphere/techjournal/0501_col_hambrick/0501_col_hambrick.html}EJB Advocate (IBM developerWorks)}}
+	
+	* {{{http://www.corej2eepatterns.com/}Core J2EE Design Patterns}}
+	
+	* {{{http://java.sun.com/blueprints/corej2eepatterns/Patterns/BusinessDelegate.html}The Business Delegate design pattern}}
+	
+	* {{{http://www.ibm.com/developerworks/java/library/j-ejbtip0820/}The Business Interface design pattern}}
+	
+	* {{{http://java.sun.com/blueprints/corej2eepatterns/Patterns/ServiceLocator.html}The Service Locator design pattern}}
+	
+	[]
+	
+
+Dynamic Proxies
+	
+	* {{{http://java.sun.com/j2se/1.3/docs/guide/reflection/proxy.html}JDK Dynamic Proxies documentation}}
+	
+	[]
+
+	
+Spring Framework
+	
+	* {{{http://www.springframework.org/}Spring Framework}}
+	
+	* {{{http://static.springframework.org/spring/docs/1.2.x/reference/ejb.html}Spring Framework EJB Access documentation}}
+	
+	[]

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+    	<title>Examples</title>
+    	<author>Spiros Tzavellas</author>
+    </properties>
+
+	<body>
+		<section name="Example 1">
+		
+		<p>
+		   Below is a basic example of a <em>Servlet</em>, who uses the <code>DynamicDelegateFactory</code> to
+		   dynamically create a business delegate for the <code>HelloBean</code>. Note that the <code>HelloBean</code>
+		   implements the <a href="http://www.ibm.com/developerworks/java/library/j-ejbtip0820/">Business Interface</a>
+		   design pattern by implementing the <code>Hello</code> interface.
+		</p>
+		 
+		<source><![CDATA[
+// A servlet that uses the Dynamic Delegate to call the below bean.
+public class MyServlet extends HttpServlet {
+
+	public MyServlet() { super(); }
+
+	public void doGet(HttpServletRequest req,HttpServletResponse res)
+	throws ServletException, IOException {
+	
+		DynamicDelegateFactory delegateFactory = new DynamicDelegateFactory();
+		Hello delegate = (Hello) delegateFactory.createLocalDelegate(
+						"java:comp/env/ejb/HelloLocalHome",
+						HelloLocalHome.class,
+						Hello.class);
+		
+		res.setContentType("text/html");
+		PrintWriter pw = res.getWriter();
+		pw.println(delegate.sayHello());
+		pw.close();
+	}
+}
+
+// The Business interface
+public interface Hello {
+
+	String sayHello();
+}
+
+// The local client interface, implements the business interface (Hello)
+public HelloLocal extends EJBLocalObject, Hello {
+
+}
+
+// The local home
+public HelloLocalHome implements EJBLocalHome {
+
+	public HelloLocal create() throws CreateException;
+}
+
+// The bean class, implements the business interface (Hello)
+public HelloBean implements SessionBean, Hello {
+
+	public String sayHello() { return "Hello"; }
+
+	public void ejbCreate() { }
+	public void ejbActivate() { }
+	public void ejbPassivate() { }
+	public void ejbRemove() { }
+	public void setSessionContext(SessionContext ctx) { }
+}
+		]]>
+		</source>
+		
+		<p>You can also browse the source code of the <code>DynamicDelegateFactoryTest</code> test case.</p>
+		</section>
+	</body>
+</document>
