@@ -11,4 +11,4 @@ I got the idea to implement this project after reading Brett McLaughlin's [EJB b
 
 ## News
 
- * <<24 October 2005:>> Initial release.
+ * **24 October 2005**: Initial release.
